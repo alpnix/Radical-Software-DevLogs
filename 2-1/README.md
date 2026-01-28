@@ -1,5 +1,5 @@
 1. Fork an Astro Starlight site and update project structure.
-2. Publish Astro Starlight using Github Actions ✏️ LINK_TO_YOUR_REPO
+2. Publish Astro Starlight using Github Actions: https://alpnix.github.io/Radical-Software-DevLogs/2-1/
 3. Add custom CSS to your theme
 4. Import and use an Astro component
 5. Continue customizing your site using the Starlight Docs and ✏️ explain what you did.

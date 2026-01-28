@@ -1,0 +1,32 @@
+---
+title: DevLog 2-1
+description: Starlight customization and Astro component usage.
+---
+
+import Highlight from '../../components/Highlight.astro';
+
+# DevLog 2-1: Starlight Customization
+
+## What I changed
+I followed the Starlight customization guide and updated the site configuration and styling to better match this DevLog site. Reference: https://starlight.astro.build/guides/customization/
+
+### Config updates
+- Added a logo using the existing `houston.webp` asset.
+- Enabled edit links that point to the `2-1/` directory on GitHub.
+- Tuned the global table of contents to include H2 and H3 headings.
+- Added a DevLogs section in the sidebar for quick navigation.
+
+### Theme styling
+Custom CSS is loaded from `src/styles/custom.css` and includes Tailwind v4 utilities plus updated color tokens.
+
+## Astro component usage
+To satisfy the requirement to import and use an Astro component, I created a reusable `Highlight` component and used it below.
+
+<Highlight title="Component Check">
+This callout is rendered by a custom Astro component imported into MDX.
+It uses Tailwind utility classes for spacing, borders, and color.
+</Highlight>
+
+## Next steps
+- Add the reading response for the Heydon Pickering talk.
+- Expand this DevLog with reflection and source links.

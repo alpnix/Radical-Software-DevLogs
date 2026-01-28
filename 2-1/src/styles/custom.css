@@ -1,0 +1,69 @@
+  /* Dark mode colors. */
+:root {
+  --sl-content-width: 50rem;
+  --sl-text-5xl: 3.5rem;
+  
+	--sl-color-accent-low: #072d00;
+	--sl-color-accent: #247f00;
+	--sl-color-accent-high: #aad7a0;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #eaf0e8;
+	--sl-color-gray-2: #bdc4bb;
+	--sl-color-gray-3: #82907f;
+	--sl-color-gray-4: #4f5c4d;
+	--sl-color-gray-5: #303c2d;
+	--sl-color-gray-6: #1f2a1c;
+	--sl-color-black: #151a13;
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #c0e2b8;
+	--sl-color-accent: #237b00;
+	--sl-color-accent-high: #0d3e00;
+	--sl-color-white: #151a13;
+	--sl-color-gray-1: #1f2a1c;
+	--sl-color-gray-2: #303c2d;
+	--sl-color-gray-3: #4f5c4d;
+	--sl-color-gray-4: #82907f;
+	--sl-color-gray-5: #bdc4bb;
+	--sl-color-gray-6: #eaf0e8;
+	--sl-color-gray-7: #f4f7f3;
+	--sl-color-black: #ffffff;
+}
+  
+  @layer base, starlight, theme, components, utilities;
+
+  @import '@astrojs/starlight-tailwind';
+  @import 'tailwindcss/theme.css' layer(theme);
+  @import 'tailwindcss/utilities.css' layer(utilities);
+  
+  @theme {
+    /* Your preferred text font. Starlight uses a system font stack by default. */
+    --font-sans: 'Atkinson Hyperlegible';
+    /* Your preferred code font. Starlight uses system monospace fonts by default. */
+    --font-mono: 'IBM Plex Mono';
+    /* Your preferred accent color. Indigo is closest to Starlight’s defaults. */
+    --color-accent-50: var(--color-indigo-50);
+    --color-accent-100: var(--color-indigo-100);
+    --color-accent-200: var(--color-indigo-200);
+    --color-accent-300: var(--color-indigo-300);
+    --color-accent-400: var(--color-indigo-400);
+    --color-accent-500: var(--color-indigo-500);
+    --color-accent-600: var(--color-indigo-600);
+    --color-accent-700: var(--color-indigo-700);
+    --color-accent-800: var(--color-indigo-800);
+    --color-accent-900: var(--color-indigo-900);
+    --color-accent-950: var(--color-indigo-950);
+    /* Your preferred gray scale. Zinc is closest to Starlight’s defaults. */
+    --color-gray-50: var(--color-zinc-50);
+    --color-gray-100: var(--color-zinc-100);
+    --color-gray-200: var(--color-zinc-200);
+    --color-gray-300: var(--color-zinc-300);
+    --color-gray-400: var(--color-zinc-400);
+    --color-gray-500: var(--color-zinc-500);
+    --color-gray-600: var(--color-zinc-600);
+    --color-gray-700: var(--color-zinc-700);
+    --color-gray-800: var(--color-zinc-800);
+    --color-gray-900: var(--color-zinc-900);
+    --color-gray-950: var(--color-zinc-950);
+  }

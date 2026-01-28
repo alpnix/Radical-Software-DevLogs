@@ -1,0 +1,43 @@
+---
+title: DevLog 1-3
+description: Node.js cron + Puppeteer scraping recap.
+---
+
+# DevLog 1-3: Node.js & Web Scraping with Cron
+
+## Project Overview
+Built a Node.js application that uses Puppeteer to scrape GitHub repository data on a scheduled interval using cron jobs.
+
+## Key Accomplishments
+
+### Environment Setup
+- Installed and configured Node.js (v20.9.0).
+- Initialized an NPM project with ES module support (`"type": "module"`).
+- Installed Nodemon globally for automatic script reloading during development.
+
+### Dependencies Installed
+- **cron** (^4.4.0) for scheduling automated tasks.
+- **puppeteer** (^24.36.1) for headless browser automation.
+
+### Core Implementation
+Created `index.js` with the following functionality:
+
+#### Web Scraping Function
+- Launches a headless Chromium browser using Puppeteer.
+- Navigates to `https://github.com/alpnix/Radical-Software-DevLogs`.
+- Extracts structured data (title, repo name, description, star count, and first five files).
+- Logs timestamped results to the console.
+
+#### Cron Job Scheduling
+- Configured cron expression `*/10 * * * *` (runs every 10 minutes).
+- Executes the scraping function on schedule.
+
+### Version Control
+- Initialized a Git repository and added a `.gitignore`.
+- Published to GitHub: https://github.com/alpnix/Radical-Software-DevLogs/tree/master/1-3
+
+## Technical Highlights
+- Used modern ES6 imports.
+- Implemented async/await for async browser operations.
+- Used DOM query selectors with optional chaining for safe extraction.
+- Configured Puppeteer with `networkidle2` for reliable page loading.
