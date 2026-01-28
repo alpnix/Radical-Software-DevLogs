@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://alpnix.github.io/Radical-Software-DevLogs/2-1/',
+	base: '/Radical-Software-DevLogs/2-1/',
 	integrations: [
 		starlight({
 			title: 'Radical Software DevLogs',
