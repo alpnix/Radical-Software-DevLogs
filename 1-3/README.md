@@ -6,5 +6,5 @@
 6. Install the Cron NPM package and use it in a script
 7. Look up the cron expression for “every 10 minutes”. Test it and add it: */10 * * * *
 8. Create a Git repo and commit a .gitignore file
-9. Publish the repo on Github. Add the link ✏️ HERE
+9. Publish the repo on Github. Add the link: https://github.com/alpnix/Radical-Software-DevLogs/tree/master/1-3
 10. Turn it in by posting the Github link in Moodle
