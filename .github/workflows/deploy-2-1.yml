@@ -39,10 +39,15 @@ jobs:
         working-directory: 2-1
         run: npm run build
 
+      - name: Stage site under /2-1
+        run: |
+          mkdir -p pages/2-1
+          cp -a 2-1/dist/. pages/2-1/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 2-1/dist
+          path: pages
 
   deploy:
     needs: build
