@@ -31,6 +31,7 @@ Entries are organized chronologically by filename. The date prefix ensures they 
 
 ## Index of Entries
 
-- [Example Entry](example-entry.md) - Getting Started with Radical Software (2026-01-28)
+- [Example Entry](example-entry.md) - Getting Started with Radical Software *(example file demonstrating the structure)*
 
 <!-- Add new entries to this list as you create them -->
+<!-- Example format: - [2026-01-28](2026-01-28-topic-name.md) - Topic Name -->
