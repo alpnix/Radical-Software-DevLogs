@@ -44,6 +44,24 @@ jobs:
           mkdir -p pages/2-1
           cp -a 2-1/dist/. pages/2-1/
 
+      - name: Create root redirect
+        run: |
+          cat > pages/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="refresh" content="0; url=/Radical-Software-DevLogs/2-1/" />
+              <meta name="robots" content="noindex" />
+              <title>Redirecting…</title>
+              <link rel="canonical" href="/Radical-Software-DevLogs/2-1/" />
+            </head>
+            <body>
+              <p>Redirecting to <a href="/Radical-Software-DevLogs/2-1/">/Radical-Software-DevLogs/2-1/</a>…</p>
+            </body>
+          </html>
+          EOF
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
