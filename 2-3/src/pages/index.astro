@@ -1,12 +1,102 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import PageShell from '../components/PageShell.astro';
 ---
 
-<Layout title="Astro" description="Welcome to Astro. Pages and blog with frontmatter and file-based routing." navActive="home">
-	<Welcome />
-	<h1>Astro</h1>
-	<p>
-		<a href="/posts/post1">Read post1</a> · <a href="/posts/post2">Read post2</a>
-	</p>
+<Layout
+	title="Radical Software DevLogs"
+	description="A tiny Astro site deployed on Netlify to experiment with content, routing, and layouts."
+	navActive="home"
+>
+	<PageShell>
+		<section id="hero">
+			<h1>Radical Software DevLogs on Netlify</h1>
+			<p>
+				This site is a small Astro project deployed to Netlify at
+				<a href="https://astro-tutorial-alp.netlify.app/" target="_blank" rel="noreferrer"
+					>astro-tutorial-alp.netlify.app</a
+				>.
+			</p>
+			<p>
+				It’s my playground for:
+			</p>
+			<ul>
+				<li>Trying out Astro’s file-based routing.</li>
+				<li>Building markdown-powered blog posts with shared layouts.</li>
+				<li>Experimenting with simple, Netlify-friendly deployments.</li>
+			</ul>
+
+			<section id="links">
+				<a class="button" href="/posts/post1">Read the first devlog</a>
+				<a href="/posts/post2">See another post</a>
+			</section>
+		</section>
+	</PageShell>
 </Layout>
+
+<style>
+	#hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 48rem;
+		padding: 1.5rem;
+		background: rgba(255, 255, 255, 0.9);
+		border-radius: 1.25rem;
+		border: 1px solid rgba(255, 255, 255, 0.7);
+		box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+	}
+
+	h1 {
+		font-size: 2.1rem;
+		margin-bottom: 0.75rem;
+		color: #111827;
+	}
+
+	p {
+		color: #4b5563;
+		font-size: 1rem;
+		line-height: 1.8;
+		margin: 0.25rem 0;
+	}
+
+	ul {
+		margin: 0.75rem 0 1.5rem;
+		padding-left: 1.25rem;
+		color: #4b5563;
+		line-height: 1.7;
+	}
+
+	a {
+		color: #1d4ed8;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
+	}
+
+	#links {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 0.75rem;
+	}
+
+	#links a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.6rem 1rem;
+		text-decoration: none;
+		border-radius: 999px;
+	}
+
+	#links a.button {
+		color: white;
+		background-color: #2563eb;
+		box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+	}
+
+	#links a.button:hover {
+		background-color: #1d4ed8;
+	}
+</style>
+
