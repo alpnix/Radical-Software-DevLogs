@@ -1,54 +1,5 @@
-# Astro Starter Kit: Basics
-
-Site: https://astro-tutorial-alp.netlify.app/
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## What was difficult so far ✏️
-
-- **File-based routing for blog**: Using `getStaticPaths()` with `import.meta.glob('../../blog/*.md', { eager: true })` to turn each `.md` file into a route under `/posts/[post]` took a bit of reading; the glob keys are file paths, so we derive the slug from the path.
-- **Layout for markdown**: Blog posts live in `src/blog/` (not in `src/pages/`), so they don’t use the frontmatter `layout` property. Instead, the dynamic page `[post].astro` loads each post, reads frontmatter, and wraps the rendered `<Content />` in `BlogLayout.astro`, which uses `<slot />` and `Astro.props` to inject title, description, and date.
-- **Reusing layouts**: Making `Layout.astro` accept `title` and `description` via `Astro.props` so every page can inject its own meta and title without duplicating `<head>`; `BlogLayout.astro` then composes `Layout` and adds article/slot markup for posts.
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Create a new Astro site and publish it on Netlify. Here is the site: https://astro-tutorial-alp.netlify.app/
+2. Create pages (.astro files) and blog posts (.md files) using frontmatter and file-based routing. 
+3. Use Astro components (also .astro files!) to reuse common code across your website3.
+4. Create reusable layout components using <slot /> and Astro.props to inject child content4.
+5. Create layout components for markdown files. Share anything that was difficult so far: It's not been the easiest to keep track of nested files especially imagining for bigger projests
