@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+Site: https://astro-tutorial-alp.netlify.app/
+
 ```sh
 npm create astro@latest -- --template basics
 ```
@@ -40,6 +42,12 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## What was difficult so far ✏️
+
+- **File-based routing for blog**: Using `getStaticPaths()` with `import.meta.glob('../../blog/*.md', { eager: true })` to turn each `.md` file into a route under `/posts/[post]` took a bit of reading; the glob keys are file paths, so we derive the slug from the path.
+- **Layout for markdown**: Blog posts live in `src/blog/` (not in `src/pages/`), so they don’t use the frontmatter `layout` property. Instead, the dynamic page `[post].astro` loads each post, reads frontmatter, and wraps the rendered `<Content />` in `BlogLayout.astro`, which uses `<slot />` and `Astro.props` to inject title, description, and date.
+- **Reusing layouts**: Making `Layout.astro` accept `title` and `description` via `Astro.props` so every page can inject its own meta and title without duplicating `<head>`; `BlogLayout.astro` then composes `Layout` and adds article/slot markup for posts.
 
 ## 👀 Want to learn more?
 

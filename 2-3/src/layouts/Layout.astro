@@ -1,3 +1,14 @@
+---
+import Nav from '../components/Nav.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	navActive?: string;
+}
+
+const { title = 'Astro Basics', description, navActive } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,9 +17,11 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		{description && <meta name="description" content={description} />}
+		<title>{title}</title>
 	</head>
 	<body>
+		<Nav active={navActive} />
 		<slot />
 	</body>
 </html>

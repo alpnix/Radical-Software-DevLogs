@@ -1,0 +1,21 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export function getStaticPaths() {
+	const posts = import.meta.glob('../../blog/*.md', { eager: true });
+	return Object.entries(posts).map(([path, mod]) => {
+		const slug = path.split('/').pop()?.replace(/\.md$/, '') ?? '';
+		return { params: { post: slug }, props: { post: mod } };
+	});
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post as { Content: Astro.Component; frontmatter: Record<string, unknown> };
+const title = (frontmatter.title as string) ?? 'Untitled';
+const description = frontmatter.description as string | undefined;
+const pubDate = frontmatter.pubDate as string | undefined;
+const slug = Astro.params.post ?? '';
+---
+<BlogLayout title={title} description={description} pubDate={pubDate} navActive={slug}>
+	<Content />
+</BlogLayout>
