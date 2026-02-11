@@ -17,18 +17,17 @@ import { data, functions } from "./data.js";
 ////////////// ROUTES ////////////////
 //////////////////////////////////////
 
-// Static route: fixed path, same behavior every time
-router.get("/api/random", (req, res) => {
-  const message = returnPassword(["endearments", "dates"]);
-  res.json({ message });
+router.get("/api", async function (req, res) {
+  res.send({ message: "Hello, World!" });
 });
 
-// Dynamic route: response depends on query params (e.g. ?params=endearments,dates)
-router.get("/api/custom", (req, res) => {
-  const paramStr = req.query.params || "endearments,dates";
-  const params = paramStr.split(",").map((p) => p.trim()).filter(Boolean);
-  const message = returnPassword(params);
-  res.json({ message });
+router.get("/api/common", async function (req, res) {
+  res.send({ message: randomFromArray(data.common) });
+});
+
+router.get("/api/custom", async function (req, res) {
+  console.log(`params = ${req.query.params}`);
+  res.send({ message: returnPassword(req.query.params || "endearments,dates") });
 });
 
 export default router;
