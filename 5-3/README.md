@@ -1,6 +1,7 @@
 1. Review the Sound & Music page to learn Tone.js and Strudel.
-2. Complete the Strudel First Sounds tutorial. Post a link to your finished REPL ✏️ here.
-3. Complete the Strudel First Notes tutorial. Post a link to your finished REPL ✏️ here.
+2. Complete the Strudel First Sounds tutorial. Post a link to your finished REPL: https://strudel.cc/#JDogcygiW2JkIDxoaCBvaD5dKjIiKS5iYW5rKCJ0cjkwOSIpLmRlYyguNCk%3D
+3. Complete the Strudel First Notes tutorial. Post a link to your finished REPL: 
+https://strudel.cc/#CiQ6IHMoIltiZCA8aGggb2g%2BXSoyIikuYmFuaygidHI5MDkiKS5kZWMoLjQp
 4. Complete the Strudel First Effects tutorial. Post a link to your finished REPL ✏️ here.
 5. Music Mouse Explained | Laurie Spiegel on Algorithmic Composition (1987 Archive) (27:38). Post a reading response in your DevLog per information in the Assignments.
 6. Complete all five parts of the Getting Started with Tone.js | Web Audio Tutorial - Pts 1-5 (3:31, 6:37, 10:20, 5:59, 9:28). Post a link to your finished project online ✏️ here.
