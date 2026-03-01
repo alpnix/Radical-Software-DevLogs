@@ -1,17 +1,17 @@
 ---
 title: DevLog 5-3
-description: Sound & Music — Strudel tutorials, Tone.js, and the Puzzle Tones interactive audio experience.
+description: Sound and Music. Strudel tutorials, Tone.js, and the Puzzle Tones interactive audio experience.
 ---
 
 # DevLog 5-3: Sound, Music & Interactive Audio
 
 ## Project Overview
 
-This module explores sound and music on the web through Strudel (a live-coding pattern language) and Tone.js (a Web Audio framework). The final project is **Puzzle Tones** — an interactive audio experience where a 3×3 jigsaw puzzle grid acts as a playable musical instrument, built with Tone.js and SVG.
+This module explores sound and music on the web through Strudel (a live-coding pattern language) and Tone.js (a Web Audio framework). The final project is **Puzzle Tones**, an interactive audio experience where a 3×3 jigsaw puzzle grid acts as a playable musical instrument, built with Tone.js and SVG.
 
 **Live project:** <a href="/Radical-Software-DevLogs/2-1/puzzle-tones.html" target="_blank">Puzzle Tones</a>
 
-**Design mockups:** [Figma — Noteblocks HTML Design](https://www.figma.com/design/iB6hoHpwVJo1fTi3BOOmsQ/Noteblocks-HTML-Design?node-id=0-1&t=KIvafOeOf4Wfh1EE-1)
+**Design mockups:** [Figma: Noteblocks HTML Design](https://www.figma.com/design/iB6hoHpwVJo1fTi3BOOmsQ/Noteblocks-HTML-Design?node-id=0-1&t=KIvafOeOf4Wfh1EE-1)
 
 ## Key Accomplishments
 
@@ -239,4 +239,10 @@ note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
 **Puzzle Tones** is an interactive audio experience built with Tone.js and SVG. A 3×3 grid of interlocking jigsaw puzzle pieces forms a colorful, playable instrument. Each piece is mapped to a note in the C major scale (C4 through D5) and rendered with a distinct color. Clicking a piece triggers a pluck-like synthesized tone using a triangle-wave oscillator shaped by a fast ADSR envelope, routed through a reverb effect for spatial depth. The visual flash on each click reinforces the connection between touch and sound, making the experience feel tactile and responsive.
 
 <a href="/Radical-Software-DevLogs/2-1/puzzle-tones.html" target="_blank">▶ Play Puzzle Tones</a>
+
+![Puzzle Tones screenshot](/Radical-Software-DevLogs/2-1/puzzle-tones-screenshot.png)
+
+## Concept and Technology Statement
+
+I really liked the tonematrix example from the inspiration websites. I've always liked playing puzzles so I wanted to assign each piece of a puzzle into a note for the user to have creativity around generating a harmony the way they play the puzzle themselves. Some future steps for this could be users being able to drag and drop the puzzle pieces into the board themselves and create and replay certain harmonies. Apart from that, I want to learn more about the notes that play well with each other to be able to place them accordingly into the relevant pieces instead of just having a random set of notes appearing in the different pieces.
 
