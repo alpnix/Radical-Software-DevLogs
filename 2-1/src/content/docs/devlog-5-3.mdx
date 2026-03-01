@@ -234,16 +234,9 @@ note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
 
 **Related work:** [Laurie Spiegel: Grassroots Technologist](https://newmusicusa.org/nmbx/laurie-spiegel-grassroots-technologist/)
 
-## Interactive Audio Experience — Puzzle Tones
+## Interactive Audio Experience: Puzzle Tones
 
 **Puzzle Tones** is an interactive audio experience built with Tone.js and SVG. A 3×3 grid of interlocking jigsaw puzzle pieces forms a colorful, playable instrument. Each piece is mapped to a note in the C major scale (C4 through D5) and rendered with a distinct color. Clicking a piece triggers a pluck-like synthesized tone using a triangle-wave oscillator shaped by a fast ADSR envelope, routed through a reverb effect for spatial depth. The visual flash on each click reinforces the connection between touch and sound, making the experience feel tactile and responsive.
 
 <a href="/Radical-Software-DevLogs/2-1/puzzle-tones.html" target="_blank">▶ Play Puzzle Tones</a>
 
-## What I Learned
-
-- I learned how to use Strudel's mini-notation for creating rhythmic patterns (`*`, `[]`, `<>`, `,`) and layering multiple voices with the `$:` syntax
-- I learned about Strudel's effects pipeline including `lpf`, `vowel`, `delay`, `room`, `gain`, `pan`, `speed`, and envelope shaping with `adsr`
-- I learned about Tone.js's audio graph architecture: creating synths, connecting them to effects (Reverb), and routing to the destination
-- I learned how ADSR envelopes shape sound over time (attack, decay, sustain, release) and how to tune them for percussive/pluck-like timbres
-- I learned about the Web Audio API's autoplay restrictions and why `Tone.start()` is needed on user interaction
