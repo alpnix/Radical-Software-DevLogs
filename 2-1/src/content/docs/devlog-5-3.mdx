@@ -1,33 +1,249 @@
 ---
 title: DevLog 5-3
-description: (Draft) DevLog 5-3 — coming soon.
+description: Sound & Music — Strudel tutorials, Tone.js, and the Puzzle Tones interactive audio experience.
 ---
 
-# DevLog 5-3
+# DevLog 5-3: Sound, Music & Interactive Audio
 
 ## Project Overview
 
-(Write this later.)
+This module explores sound and music on the web through Strudel (a live-coding pattern language) and Tone.js (a Web Audio framework). The final project is **Puzzle Tones** — an interactive audio experience where a 3×3 jigsaw puzzle grid acts as a playable musical instrument, built with Tone.js and SVG.
+
+**Live project:** <a href="/Radical-Software-DevLogs/2-1/puzzle-tones.html" target="_blank">Puzzle Tones</a>
+
+**Design mockups:** [Figma — Noteblocks HTML Design](https://www.figma.com/design/iB6hoHpwVJo1fTi3BOOmsQ/Noteblocks-HTML-Design?node-id=0-1&t=KIvafOeOf4Wfh1EE-1)
 
 ## Key Accomplishments
 
-- (Add your bullet points here.)
+- Completed Strudel First Sounds, First Notes, and First Effects tutorials
+- Watched and responded to Laurie Spiegel's Music Mouse Explained video
+- Completed all five parts of the Getting Started with Tone.js tutorial
+- Designed and built "Puzzle Tones," an interactive audio experience using Tone.js and SVG
+
+## Strudel First Sounds
+
+```js
+sound("casio")
+
+sound("casio:1")
+
+sound("bd hh sd oh")
+
+sound("bd hh sd oh").bank("RolandTR909")
+
+sound("bd hh sd hh")
+
+sound("bd bd hh bd rim bd hh bd")
+
+sound("<bd bd hh bd rim bd hh bd>")
+
+sound("<bd bd hh bd rim bd hh bd>*8")
+
+setcpm(90/4)
+sound("<bd hh rim hh>*8")
+
+sound("bd hh - rim - bd hh rim")
+
+sound("bd [hh hh] sd [hh bd] bd - [hh sd] cp")
+
+sound("bd [[rim rim] hh] bd cp")
+
+sound("hh hh hh, bd casio")
+
+sound("hh hh hh, bd bd, - casio")
+
+sound("hh hh hh, bd [bd,casio]")
+
+sound(`bd*2, - cp,
+- - - oh, hh*4,
+[- casio]*2`)
+
+n("0 1 [4 2] 3*2").sound("jazz")
+```
+
+## Strudel First Notes
+
+```js
+note("48 52 55 59").sound("piano")
+
+note("c e g b").sound("piano")
+
+note("db eb gb ab bb").sound("piano")
+note("c# d# f# g# a#").sound("piano")
+
+note("c2 e3 g4 b5").sound("piano")
+
+note("36 43, 52 59 62 64")
+  .sound("piano")
+
+note("48 67 63 [62, 58]")
+  .sound("piano gm_electric_guitar_muted")
+
+note("48 67 63 [62, 58]")
+  .sound("piano, gm_electric_guitar_muted")
+
+note("[36 34 41 39]/4")
+  .sound("gm_acoustic_bass")
+
+note("<36 34 41 39>")
+  .sound("gm_acoustic_bass")
+
+note("<[36 48]*4 [34 46]*4 [41 53]*4 [39 51]*4>")
+  .sound("gm_acoustic_bass")
+
+note("60 <63 62 65 63>")
+  .sound("gm_xylophone")
+
+sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+  .bank("RolandTR909")
+
+setcpm(60)
+n("0 2 4 <[6,8] [7,9]>")
+  .scale("C:minor").sound("piano")
+
+setcpm(60)
+n("<0 -3>, 2 4 <[6,8] [7,9]>")
+  .scale("<C:major D:mixolydian>/4")
+  .sound("piano")
+
+note("c@3 eb")
+  .sound("gm_acoustic_bass")
+
+setcpm(60)
+n("<[4@2 4] [5@2 5] [6@2 6] [5@2 5]>*2")
+  .scale("<C2:mixolydian F2:mixolydian>/4")
+  .sound("gm_acoustic_bass")
+
+setcpm(60)
+note("c!2 [eb,<g a bb a>]")
+  .sound("piano")
+
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+  .sound("gm_synth_bass_1")
+  .lpf(800)
+
+n(`<
+[~ 0] 2 [0 2] [~ 2]
+[~ 0] 1 [0 1] [~ 1]
+[~ 0] 3 [0 3] [~ 3]
+[~ 0] 2 [0 2] [~ 2]
+>*4`)
+  .scale("C4:minor")
+  .sound("gm_synth_strings_1")
+
+sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+  .bank("RolandTR909")
+
+$: note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+    .sound("gm_synth_bass_1").lpf(800)
+
+$: n(`<
+[~ 0] 2 [0 2] [~ 2]
+[~ 0] 1 [0 1] [~ 1]
+[~ 0] 3 [0 3] [~ 3]
+[~ 0] 2 [0 2] [~ 2]
+>*4`)
+    .scale("C4:minor")
+    .sound("gm_synth_strings_1")
+
+$: sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+    .bank("RolandTR909")
+```
+
+## Strudel First Effects
+
+```js
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+.sound("sawtooth").lpf(800)
+
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+.sound("sawtooth").lpf("200 1000 200 1000")
+
+note("<[c3,g3,e4] [bb2,f3,d4] [a2,f3,c4] [bb2,g3,eb4]>")
+.sound("sawtooth").vowel("<a e i o>")
+
+$: sound("hh*16").gain("[.25 1]*4")
+$: sound("bd*4,[~ sd:1]*2")
+
+$: sound("hh*8").gain("[.25 1]*4")
+$: sound("bd*4,[~ sd:1]*2")
+$: note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+.sound("sawtooth").lpf("200 1000 200 1000")
+$: note("<[c3,g3,e4] [bb2,f3,d4] [a2,f3,c4] [bb2,g3,eb4]>")
+.sound("sawtooth").vowel("<a e i o>")
+
+note("c3 bb2 f3 eb3")
+.sound("sawtooth").lpf(600)
+.attack(.1)
+.decay(.1)
+.sustain(.25)
+.release(.2)
+
+note("c3 bb2 f3 eb3")
+.sound("sawtooth").lpf(600)
+.adsr(".1:.1:.5:.2")
+
+$: note("[~ [<[d3,a3,f4]!2 [d3,bb3,g4]!2> ~]]*2")
+.sound("gm_electric_guitar_muted").delay(.5)
+$: sound("bd rim").bank("RolandTR707").delay(".5")
+
+n("<4 [3@3 4] [<2 0> ~@16] ~>")
+.scale("D4:minor").sound("gm_accordion:2")
+.room(2)
+
+$: note("[~ [<[d3,a3,f4]!2 [d3,bb3,g4]!2> ~]]*2")
+.sound("gm_electric_guitar_muted").delay(.5)
+$: sound("bd rim").bank("RolandTR707").delay(.5)
+$: n("<4 [3@3 4] [<2 0> ~@16] ~>")
+.scale("D4:minor").sound("gm_accordion:2")
+.room(2).gain(.5)
+$: n("[0 [~ 0] 4 [3 2] [0 ~] [0 ~] <0 2> ~]/2")
+.scale("D2:minor")
+.sound("sawtooth,triangle").lpf(800)
+
+sound("numbers:1 numbers:2 numbers:3 numbers:4")
+.pan("0 0.3 .6 1")
+
+sound("bd rim [~ bd] rim")
+.speed("<1 2 -1 -2>").room(.2)
+
+sound("bd*4,~ rim ~ cp").slow(2)
+
+sound("[bd*4,~ rim ~ cp]*<1 [2 4]>")
+
+sound("hh*16").gain(sine)
+
+sound("hh*16").lpf(saw.range(500, 2000))
+
+note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+.sound("sawtooth")
+.lpf(sine.range(100, 2000).slow(4))
+```
 
 ## Reading Response
 
-**Article:** (Add later)
+**Video:** *Music Mouse Explained | Laurie Spiegel on Algorithmic Composition (1987 Archive)* (27:38)
 
-**Summary:** (Add later)
+**Summary:** Laurie Spiegel talks about her program for composing music in Macintosh devices. Her software program gets input through the mouse instead of the keyboard and generates harmonies and instruments for artists.
 
-**Quote:** (Add later)
+**Quote:** "This is an instrument I initially wrote for myself really, and a lot of people wanted it, so I put it up on the market."
 
-**Comment:** (Add later)
+**Comment:** I was primarily surprised that she wrote a software program seemingly complex inspired from her composer background. Later when I realized the program got out in the market out of a real need she had, I found more insights in product roadmap.
 
-**Discussion question:** (Add later)
+**Discussion question:** How important is our taste and experience in the problems we are facing in determining the proper user experience and design while creating products?
 
-**Related work:** (Add later)
+**Related work:** [Laurie Spiegel: Grassroots Technologist](https://newmusicusa.org/nmbx/laurie-spiegel-grassroots-technologist/)
+
+## Interactive Audio Experience — Puzzle Tones
+
+**Puzzle Tones** is an interactive audio experience built with Tone.js and SVG. A 3×3 grid of interlocking jigsaw puzzle pieces forms a colorful, playable instrument. Each piece is mapped to a note in the C major scale (C4 through D5) and rendered with a distinct color. Clicking a piece triggers a pluck-like synthesized tone using a triangle-wave oscillator shaped by a fast ADSR envelope, routed through a reverb effect for spatial depth. The visual flash on each click reinforces the connection between touch and sound, making the experience feel tactile and responsive.
+
+<a href="/Radical-Software-DevLogs/2-1/puzzle-tones.html" target="_blank">▶ Play Puzzle Tones</a>
 
 ## What I Learned
 
-- (Add later.)
-
+- I learned how to use Strudel's mini-notation for creating rhythmic patterns (`*`, `[]`, `<>`, `,`) and layering multiple voices with the `$:` syntax
+- I learned about Strudel's effects pipeline including `lpf`, `vowel`, `delay`, `room`, `gain`, `pan`, `speed`, and envelope shaping with `adsr`
+- I learned about Tone.js's audio graph architecture: creating synths, connecting them to effects (Reverb), and routing to the destination
+- I learned how ADSR envelopes shape sound over time (attack, decay, sustain, release) and how to tune them for percussive/pluck-like timbres
+- I learned about the Web Audio API's autoplay restrictions and why `Tone.start()` is needed on user interaction

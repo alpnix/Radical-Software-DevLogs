@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Puzzle Tones</title>
   <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   <style>
     body {
       margin: 0;
@@ -42,7 +43,7 @@
 <script>
 const S = 90, T = 14;
 const NOTES = ['C4','D4','E4','F4','G4','A4','B4','C5','D5'];
-const COLORS = ['#c0392b','#e67e22','#d4ac0d','#27ae60','#16a085','#2980b9','#8e44ad','#6c5ce7','#a8b2c1'];
+const COLORS = ['#c0392b','#e67e22','#d4ac0d','#27ae60','#16a085','#2980b9','#8e44ad','#6c5ce7','#e84393'];
 
 function edgePath(x1, y1, x2, y2, type) {
   if (type === 0) return `L ${x2} ${y2}`;
