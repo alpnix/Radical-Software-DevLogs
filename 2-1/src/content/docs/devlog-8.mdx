@@ -1,0 +1,62 @@
+---
+title: DevLog 8
+description: Proof of concept for Task Hub and next implementation priorities.
+---
+
+# DevLog 8 - Minimum Viable Product
+
+## Project Link
+
+[Task Hub (Live Prototype)](https://task-hub-virid-gamma.vercel.app/)
+
+## 1) Working Proof of Concept
+
+I created a working proof of concept for **Task Hub**, where users can create tasks or notes for themselves, connect these different notes to each other and choose to assign certain ones to AI. 
+
+What the current version is missing is assigning certain tasks to longer running agents that the user might have rather than sending it to a generic LLM call that will come back with a less useful answer. 
+
+### Functionality That Proves Feasibility
+
+The functionalities I implemented that are working are:
+
+- A canvas where notes/tasks can be created and linked to each other
+- Ability to choose which ones to send to AI and which ones to keep it pure
+- Render the AI results together with original notes and move notes around
+
+## 2) Visual of the Prototype
+
+Current prototype screenshot:
+
+![Task Hub prototype canvas view](/Radical-Software-DevLogs/2-1/task-hub-prototype.png)
+
+## 3) Separation of Concerns (Using This Project)
+
+To me, separation of concerns means splitting the project into clear responsibilities so each components does one job, and does it well.
+
+In this prototype, I tried to keep concerns separate by:
+
+- Keeping a separate API for sending notes to an AI model
+- Treating canvas design and styling (task creation and assignment) completely separate from the API
+- Deferring advanced extras (animations, deep customization, edge-case tooling) until after core validation.
+
+## 4) What I Struggled With
+
+The biggest struggle was setting up a convenient UI and integrating an API and LLM calls into it. Later on primary problems will come in the form of optimizing the design for task collaboration (with user feedback) and designing the backend for customized AI agents. 
+
+## 5) Most Helpful Resource
+
+The AWS SDK for JavaScript has been quite helpful as I'm using this for LLM calls.
+
+- [AWS SDK](https://aws.amazon.com/sdk-for-javascript/)
+
+In the later versions, I'm also planning to use it to trigger AI agents living on AWS for more customized experience.
+
+## 6) Top 3 Features to Implement Next
+
+1. **Most important:** Connecting users' own AI agents via webhooks to involve them in the task collaboration process
+2. **Second most important:** Implementing a user auth for each user to have their own API endpoints for agent collaboration
+3. **Third most important:** Better design decisions (perhaps coloring or marking tasks) to make it for a task collaboration rather than just notes
+
+## Reflection
+
+The goal of this project is to experimentally build a center of collaboration with an AI agent, where work is intentionally divided between agent tasks and user tasks. This prototype confirms that the concept is practical and gives a clear path for implementing the highest-value features next.
