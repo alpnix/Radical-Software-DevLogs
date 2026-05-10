@@ -1,0 +1,39 @@
+---
+title: DevLog 10
+description: Final submission for Task Hub — updated proposal, project video, concept statement, and links.
+---
+
+# DevLog 10 - Final Submission
+
+## Updated Proposal
+
+[Task Hub Updated Proposal](https://docs.google.com/presentation/d/11_u70EMs3YaRAs8GHoIZ4KAPrPeuP1Ms/edit?usp=sharing&ouid=104506883282399566995&rtpof=true&sd=true)
+
+## Project Video
+
+[Task Hub Project Demo](https://youtu.be/BeC2DVLJKpA)
+
+## Written Statements
+
+### Background & Idea 
+
+I had the idea for Task Hub from a few of the problems I was facing in my workflows. First of all, whenever I had a couple directions I wanted to go from an LLM response, I would either find myself copying and pasting a lot of the history to other places to carry the context over or hope that I would remember each of those directions in the chat feed. Second problem I noticed is that, as AI develops and models get more agentic (e.g OpenClaw or ChatGPT Deep Research), AI takes more time to produce outputs almost like a human and there is no interface for these AI and human to be interacting. Currently, a chat-like interface is used for these agents too which prompts the users to wait for longer amounts of time.
+
+### Concept & Execution 
+
+The concept is a flexible canvas where users can build a graph of tasks and notes they have. They can choose to visually connect them which would also carry the context of the previous node to the next one (in the direction of arrow). The users pick which nodes (and their ancestors) to send to AI and they get to work on other nodes while AI is working on the task. When AI gets done, it writes its response on the same node as the user picked marking the AI's contribution clearly. These responses can be collapsed for visual purposes but they are also reversible which gives more freedom to the user.
+
+The canvas is built in vanilla JavaScript with CSS transforms for pan and zoom, and state is saved to localStorage as JSON so refreshes do not wipe work. Nodes form a DAG with cycle prevention, and AI requests gather ancestor notes in topological order so upstream context reaches the model first. The client stays interactive while notes load, then writes AI output back as a collapsible panel. An Express backend proxies Claude 3.5 Haiku through AWS Bedrock, and sanitizes HTML and AI Markdown before rendering. Hosted on Vercel.
+
+The biggest open question is multi-agent support via agent registry: right now every node routes to the same model. The next step is letting users point individual nodes at their own agents via webhooks, which is where the tool gets incredibly personal.
+
+## Design Layouts
+
+[Task Hub Site Capture](https://www.figma.com/design/lX6zheEdNQVuXUZBsoGerW/Task-Hub-Site-Capture?node-id=0-1&t=t0z6XxzeuJ3IgFyJ-1)
+
+Includes moodboard, color palette, typography, component designs, wireframes, high-fidelity mockups, and layout iterations.
+
+## Project & Repository
+
+- **Live project:** [task-hub-virid-gamma.vercel.app](https://task-hub-virid-gamma.vercel.app/)
+- **GitHub repository:** [alpnix/task-hub](https://github.com/alpnix/task-hub)

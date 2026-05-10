@@ -44,6 +44,7 @@ export default defineConfig({
 						{ label: 'DevLog 6-3', slug: 'devlog-6-3' },
 						{ label: 'DevLog 8', slug: 'devlog-8' },
 						{ label: 'DevLog 9', slug: 'devlog-9' },
+						{ label: 'DevLog 10', slug: 'devlog-10' },
 					],
 				},
 				{
